@@ -84,12 +84,7 @@ public class Materia
 
     //Modifica el titular de tipo Profesor por el Profesor ingresado por parámetro
     public void modificarTitular(Profesor titular){
-        try{
-            this.titular = titular;
-        }
-        catch (Exception e){
-            System.out.println("Hubo un error al intentar modificar al titular de la materia");
-        }
+        setTitular(titular);
     }
 
     //Muy probablemente no funcione adecuadamente, hay que ver la implementación que cada 
