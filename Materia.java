@@ -87,14 +87,27 @@ public class Materia
         setTitular(titular);
     }
 
-    //Muy probablemente no funcione adecuadamente, hay que ver la implementación que cada 
-    //uno le da al toString de su clase 
-    public String toString(){
-        String resultado = "Nombre de materia: " + this.nombre + "\n" + this.titular.toString();
-        
+    //Este metodo actua como un toString unicamente para los elementos dentro de la coleccion de Estudiantes
+    public String listarContenidos(){
+        String resultado = "";
         for (Estudiante estudiante: this.coleccionEstudiantes){
-            resultado = resultado + "\n" + estudiante.toString();
+            resultado = resultado + estudiante.toString() + "\n";
         }
+
+        return resultado;
+    }
+
+    //Para saber la cantidad de estudiantes que hay en coleccionEstudiantes usamos el metodo size que nos proporciona el LinkedList
+    public int verCantidad(){
+        return this.coleccionEstudiantes.size();
+
+    }
+    //Muy probablemente no funcione adecuadamente, hay que ver la implementación que cada 
+    //uno le da al toString de su clase
+    public String toString(){
+        String resultado = "Nombre de materia: " + this.nombre + "\n" + this.titular.toString() + "\n";
+        
+        resultado = resultado + listarContenidos();
 
         return resultado;
     }
