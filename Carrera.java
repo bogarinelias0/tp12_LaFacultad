@@ -28,6 +28,7 @@ public class Carrera {
     public void AgregarMateria(String NombreMateria){
         coleccionMaterias.add(new Carrera(NombreMateria));
     }
+
     public void QuitarMateria(String NombreMateria) {
         for (int i = 0; i < coleccionMaterias.size(); i++) {
             coleccionMaterias.removeIf(carrera -> carrera.getNombre().equalsIgnoreCase(NombreMateria));
@@ -36,19 +37,20 @@ public class Carrera {
 
     public void EncontrarMateria(String NombreMateria){
         boolean respuesta = true;
-        for (int i= 0; i<coleccionMaterias.size();i++){
-            if (coleccionMaterias.removeIf(carrera -> carrera.getNombre().equalsIgnoreCase(NombreMateria))){
-                System.out.println("Se encontro la materia desea eliminarla?");
+        for (Carrera carrera : coleccionMaterias){
+            respuesta = false;
+            if(carrera.getNombre().equalsIgnoreCase(NombreMateria)){
+                System.out.println("Se encontro la materia. ¿Desea eliminarla?");
                 respuesta = s.hasNext("si");
-                if (respuesta == false){
-                    AgregarMateria(NombreMateria);
-                    i++;
+                if(respuesta){
+                    QuitarMateria(NombreMateria);
                 }
-            }
-            s.nextLine()
-            ;break;
-        }
 
+                s.nextLine();
+                break;
+            }
+
+        }
     }
 
     public void MostrarMaterias() {
