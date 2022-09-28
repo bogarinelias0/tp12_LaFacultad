@@ -7,24 +7,18 @@ public class Facultad implements Informacion{
 
     @Override
     public void verCantidad(int cantidad) {
-
+        System.out.println("La cantidad de Carreras son: "+coleccionCarreras.size());
     }
 
     @Override
     public void listarContenidos(String contenido) {
-        System.out.println(coleccionCarreras);
+
+
     }
 
-    protected String nombre;
 
-        public String getNombre() {
-                return nombre;
-        }
-        public void setNombre(String nombre) {
-                this.nombre = nombre;
-        }
-       //Creo coleccion
-       public List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
+    //Creo coleccion
+       public  List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
        public Facultad(String nombre){
                this.nombre=nombre;
        }
@@ -33,15 +27,36 @@ public class Facultad implements Informacion{
         return "Carreras='" + nombre + '\'' +
                 '}';
     }
-    public  void agregarCarrera(String nombreCarrera){
+    public void agregarCarrera(String nombreCarrera){
            coleccionCarreras.add(new Carrera(nombreCarrera));
        }
-       public void quitarMateria(String NombreCarrera){
+       public void quitarCarrera(String NombreCarrera){
            for (int i = 0; i < coleccionCarreras.size(); i++) {
                coleccionCarreras.removeIf(nombre -> nombre.getNombre().equals(NombreCarrera));
            }
        }
+    protected String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
+    public void setColeccionCarreras(List<Carrera> coleccionCarreras) {
+        this.coleccionCarreras = coleccionCarreras;
+    }
+
+    public List<Carrera> getColeccionCarreras() {
+        return coleccionCarreras;
+    }
+
+
     public static void main(String[] args){
+
 
     }
 }
