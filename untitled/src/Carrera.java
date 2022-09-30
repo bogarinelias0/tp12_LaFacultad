@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Carrera {
+public class Carrera implements Informacion{
 
     Scanner s = new Scanner(System.in);
 
@@ -51,9 +51,21 @@ public class Carrera {
 
     }
 
+
     public void MostrarMaterias() {
         for (Carrera carrera:coleccionMaterias) {
             System.out.println(carrera.getNombre());
         }
+    }
+    @Override
+    public void verCantidad(int cantidad) {
+        System.out.println("La cantidad de Materias son: "+coleccionMaterias.size());
+    }
+    @Override
+    public void listarContenidos(String contenido) {
+        for(Carrera materia : coleccionMaterias){
+            System.out.println(materia.getNombre());
+        }
+
     }
 }
