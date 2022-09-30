@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Profesor extends Persona{
 
        private double basico;
@@ -5,9 +7,9 @@ public class Profesor extends Persona{
  
  
        public Profesor(double basico, int antiguedad, String nombre, String apellido, int legajo){
-       super.setNombre(nombre);
-       super.setApellido(apellido);
-       super.setLegajo(legajo);
+           super.nombre = nombre;
+           super.apellido = apellido;
+           super.legajo = legajo;
        this.basico = basico;
        this.antiguedad = antiguedad;
  
@@ -35,6 +37,26 @@ public class Profesor extends Persona{
     }
 
     public void modificarDatos(){
-
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Ingrese nuevo nombre");
+        super.nombre = entrada.nextLine();
+        System.out.println("Ingrese nuevo apellido");
+        super.apellido = entrada.nextLine();
+        System.out.println("Ingrese nuevo legajo");
+        super.legajo = entrada.nextInt();
+        System.out.println("Ingrese nuevo sueldo");
+        this.basico = entrada.nextDouble();
+        this.antiguedad = entrada.nextInt();
     }
- }
+
+    @Override
+    public String toString() {
+        return "Profesor{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", legajo=" + legajo +
+                ", basico=" + basico +
+                ", antiguedad=" + antiguedad +
+                '}';
+    }
+}

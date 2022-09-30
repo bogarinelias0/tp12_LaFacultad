@@ -1,7 +1,7 @@
 public abstract class Persona {
-    private String nombre;
-    private String apellido;
-    private int legajo;
+    protected String nombre;
+    protected String apellido;
+    protected int legajo;
 
     public String getNombre() {
         return nombre;
@@ -25,15 +25,6 @@ public abstract class Persona {
 
     public void setLegajo(int legajo) {
         this.legajo = legajo;
-    }
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", legajo=" + legajo +
-                '}';
     }
 
     public abstract void modificarDatos();
