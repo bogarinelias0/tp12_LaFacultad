@@ -1,52 +1,53 @@
+import java.util.List;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Facultad implements Informacion{
 
     @Override
-    public int verCantidad() {
-        return coleccionCarreras.size();
+    public void verCantidad(int cantidad) {
+        System.out.println("La cantidad de Carreras son: "+coleccionCarreras.size());
     }
 
     @Override
-    public String listarContenidos() {
-        if (coleccionCarreras.isEmpty()) return "Esta facultad no posee carreras";
-
-        String resultado = "";
-
+    public void listarContenidos(String contenido) {
         for(Carrera carrera : coleccionCarreras){
-            resultado = resultado + (carrera.getNombre()) + "\n";
+            System.out.println(carrera.getNombre());
         }
 
-        return resultado;
     }
 
 
     //Creo coleccion
-    private ArrayList<Carrera> coleccionCarreras;
-
-    public Facultad(String nombre, ArrayList<Carrera> coleccionCarreras){
+    public List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
+    public Facultad(String nombre){
         this.nombre=nombre;
-        this.coleccionCarreras=coleccionCarreras;
     }
 
     public String toString() {
-        String resultado = "Nombre: " + this.nombre + "\n";
-
-        resultado = resultado + listarContenidos();
-
-        return resultado;
+        return "Carreras='" + nombre + '\'' +
+                '}';
     }
-
-    public void agregarCarrera(Carrera carrera){
-        coleccionCarreras.add(carrera);
+    public void agregarCarrera(String nombreCarrera){
+        coleccionCarreras.add(new Carrera(nombreCarrera));
     }
-
-    public void quitarCarrera(String NombreCarrera){
+    public  void quitarCarrera(String NombreCarrera){
         for (int i = 0; i < coleccionCarreras.size(); i++) {
             coleccionCarreras.removeIf(nombre -> nombre.getNombre().equals(NombreCarrera));
         }
     }
 
+    public List <Estudiante> coleccionEstudiantes = new ArrayList<Estudiante>();
+
+    public void eliminarEstudiante(String nombreEstudiante){
+        for (Estudiante estudiante: coleccionEstudiantes){
+            if (estudiante.getNombre().equals(nombre)){
+                this.coleccionEstudiantes.remove(estudiante);
+                return;
+            }
+
+        }
+    }
     protected String nombre;
 
     public String getNombre() {
@@ -56,11 +57,19 @@ public class Facultad implements Informacion{
         this.nombre = nombre;
     }
 
-    public void setColeccionCarreras(ArrayList<Carrera> coleccionCarreras) {
+
+
+    public void setColeccionCarreras(List<Carrera> coleccionCarreras) {
         this.coleccionCarreras = coleccionCarreras;
     }
 
-    public ArrayList<Carrera> getColeccionCarreras() {
+    public List<Carrera> getColeccionCarreras() {
         return coleccionCarreras;
+    }
+
+
+    public static void main(String[] args){
+
+
     }
 }
