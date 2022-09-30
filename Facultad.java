@@ -16,29 +16,29 @@ public class Facultad implements Informacion{
         for(Carrera carrera : coleccionCarreras){
             resultado = resultado + (carrera.getNombre()) + "\n";
         }
-        
+
         return resultado;
     }
 
 
     //Creo coleccion
-       private ArrayList<Carrera> coleccionCarreras;
-       
-       public Facultad(String nombre, ArrayList<Carrera> coleccionCarreras){
-               this.nombre=nombre;
-               this.coleccionCarreras=coleccionCarreras;
-       }
+    private ArrayList<Carrera> coleccionCarreras;
+
+    public Facultad(String nombre, ArrayList<Carrera> coleccionCarreras){
+        this.nombre=nombre;
+        this.coleccionCarreras=coleccionCarreras;
+    }
 
     public String toString() {
         String resultado = "Nombre: " + this.nombre + "\n";
 
         resultado = resultado + listarContenidos();
-        
+
         return resultado;
     }
 
     public void agregarCarrera(Carrera carrera){
-           coleccionCarreras.add(carrera);
+        coleccionCarreras.add(carrera);
     }
 
     public void quitarCarrera(String NombreCarrera){
