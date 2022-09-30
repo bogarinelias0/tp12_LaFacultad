@@ -20,7 +20,7 @@ public class Facultad implements Informacion{
 
 
     //Creo coleccion
-       public static List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
+       public List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
        public Facultad(String nombre){
                this.nombre=nombre;
        }
@@ -29,14 +29,26 @@ public class Facultad implements Informacion{
         return "Carreras='" + nombre + '\'' +
                 '}';
     }
-    public static void agregarCarrera(String nombreCarrera){
+    public void agregarCarrera(String nombreCarrera){
            coleccionCarreras.add(new Carrera(nombreCarrera));
        }
-       public static void quitarCarrera(String NombreCarrera){
+       public  void quitarCarrera(String NombreCarrera){
            for (int i = 0; i < coleccionCarreras.size(); i++) {
                coleccionCarreras.removeIf(nombre -> nombre.getNombre().equals(NombreCarrera));
            }
        }
+
+    public List <Estudiante> coleccionEstudiantes = new ArrayList<Estudiante>();
+
+    public void eliminarEstudiante(String nombreEstudiante){
+        for (Estudiante estudiante: coleccionEstudiantes){
+           if (estudiante.getNombre().equals(nombre)){
+                this.coleccionEstudiantes.remove(estudiante);
+                return;
+            }
+
+        }
+    }
     protected String nombre;
 
     public String getNombre() {
