@@ -12,13 +12,15 @@ public class Facultad implements Informacion{
 
     @Override
     public void listarContenidos(String contenido) {
-
+            for(Carrera carrera : coleccionCarreras){
+                System.out.println(carrera.getNombre());
+            }
 
     }
 
 
     //Creo coleccion
-       public  List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
+       public static List<Carrera> coleccionCarreras = new ArrayList<Carrera>();
        public Facultad(String nombre){
                this.nombre=nombre;
        }
@@ -27,10 +29,10 @@ public class Facultad implements Informacion{
         return "Carreras='" + nombre + '\'' +
                 '}';
     }
-    public void agregarCarrera(String nombreCarrera){
+    public static void agregarCarrera(String nombreCarrera){
            coleccionCarreras.add(new Carrera(nombreCarrera));
        }
-       public void quitarCarrera(String NombreCarrera){
+       public static void quitarCarrera(String NombreCarrera){
            for (int i = 0; i < coleccionCarreras.size(); i++) {
                coleccionCarreras.removeIf(nombre -> nombre.getNombre().equals(NombreCarrera));
            }
